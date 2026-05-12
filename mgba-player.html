@@ -53,7 +53,7 @@
   <div class="instructions">Click to play...</div>
   <img class="preview" src="my_project.png" />
   <div id="container" class="hidden">
-    <div id="menu" class="playing">
+    <!-- <div id="menu" class="playing">
       <ul class="menu" id="menu_top">
         <li id="play" class="hide">Play</li>
         <li id="pause" class="show">Pause</li>
@@ -86,7 +86,7 @@
         </li>
         <li id="fullscreen">Fullscreen</li>
       </ul>
-    </div>
+    </div> -->
     <div id="main">
       <canvas class="canvas" id="emulator_target" width="240" height="160"></canvas>
     </div>
@@ -144,6 +144,7 @@
         function letErRip() {
           document.querySelector("#container").removeAttribute("class");
           document.querySelectorAll("img.preview, .instructions").forEach((el => el.remove()));
+          mGBA.setCoreSettings( {rewindEnable: false} );
           mGBA.loadGame(mGBA.filePaths().gamePath + '/' + game + '.gba')
         }
 
@@ -153,37 +154,39 @@
             game + '.gba'
           ).then(file => {
             mGBA.uploadRom(file, () => { addEvent("click", document.querySelector("img.preview"), letErRip); });
-            addEvent("click", document.getElementById("restart"), () => {
-              mGBA.quickReload();
-              mGBA.resumeGame();
-              document.getElementById("play").classList.add("hide");
-              document.getElementById("pause").classList.remove("hide");
-            });
-            addEvent("click", document.getElementById("play"), () => {
-              mGBA.resumeGame();
-              document.getElementById("play").classList.add("hide");
-              document.getElementById("pause").classList.remove("hide");
-            });
-            addEvent("click", document.getElementById("pause"), () => {
-              mGBA.pauseGame();
-              document.getElementById("pause").classList.add("hide");
-              document.getElementById("play").classList.remove("hide");
-            });
-            addEvent("click", document.getElementById("fullscreen"), () => {
-              if (document.fullscreenElement){
-                document.exitFullscreen();
-              } else {
-                document.getElementById("container").requestFullscreen();
-              }
-            });
-            addEvent("change", document.getElementById("sound"), (e) => {
-              e.preventDefault();
-              if (e.target.checked) {
-                mGBA.resumeAudio();
-              } else {
-                mGBA.pauseAudio();
-              }
-            });
+            //mGBA.setCoreSettings('rewindEnable', false);
+            // mGBA.pauseAudio();
+            // addEvent("click", document.getElementById("restart"), () => {
+            //   mGBA.quickReload();
+            //   mGBA.resumeGame();
+            //   document.getElementById("play").classList.add("hide");
+            //   document.getElementById("pause").classList.remove("hide");
+            // });
+            // addEvent("click", document.getElementById("play"), () => {
+            //   mGBA.resumeGame();
+            //   document.getElementById("play").classList.add("hide");
+            //   document.getElementById("pause").classList.remove("hide");
+            // });
+            // addEvent("click", document.getElementById("pause"), () => {
+            //   mGBA.pauseGame();
+            //   document.getElementById("pause").classList.add("hide");
+            //   document.getElementById("play").classList.remove("hide");
+            // });
+            // addEvent("click", document.getElementById("fullscreen"), () => {
+            //   if (document.fullscreenElement){
+            //     document.exitFullscreen();
+            //   } else {
+            //     document.getElementById("container").requestFullscreen();
+            //   }
+            // });
+            // addEvent("change", document.getElementById("sound"), (e) => {
+            //   e.preventDefault();
+            //   if (e.target.checked) {
+            //     mGBA.resumeAudio();
+            //   } else {
+            //     mGBA.pauseAudio();
+            //   }
+            // });
           });
 
         });
