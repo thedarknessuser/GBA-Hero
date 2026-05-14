@@ -171,9 +171,18 @@
         function letErRip() {
           document.querySelector("#container").removeAttribute("class");
           document.querySelectorAll("img.preview, .instructions").forEach((el => el.remove()));
-          mGBA.setCoreSettings( {rewindEnable: false} );
+          mGBA.setCoreSettings( {rewindEnable: false, } );
+
+          document.addEventListener("keydown", e => console.log(e.key, e.code));
+
           document.getElementById("container").requestFullscreen();
           mGBA.loadGame(mGBA.filePaths().gamePath + '/' + game + '.gba')
+          mGBA.bindKey("a", "l");
+          mGBA.bindKey("s", "down");
+          mGBA.bindKey("k", "b");
+          mGBA.bindKey("l", "r");
+          mGBA.bindKey("Backspace", "start");
+          mGBA.bindKey("Return", "select");
         }
 
         mGBA.FSInit().then(() => {
