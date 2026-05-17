@@ -14,19 +14,33 @@
       background-color: powderblue;
     }
 
-    h1 {
+    .header {
       text-align: center;
       font-family: verdana;
-      font-size: 500%;
-      color: darkgreen;
+      color: black;
+      font-size: 300%;
       margin-top: 0;
       padding-top: 0;
+      margin-bottom: -50px;
+      padding-bottom: 0;
     }
 
-    p {
+    .bodytext {
       text-align: center;
-      margin: 0;
-      background: powderblue;
+      background: transparent;
+      padding-top: 20px;
+      padding-bottom: 10px;
+      color: black;
+      font-size: 125%;
+      word-wrap: break-word;
+      max-width: 1000px;
+      display: flex;
+      margin: auto;
+    }
+
+    .buttontext {
+      text-align: center;
+      background: transparent;
       padding-top: 20px;
       padding-bottom: 10px;
       color: black;
@@ -75,6 +89,18 @@
 
     font-size: 32px;
     text-decoration: none;
+
+    margin-bottom: 35px;
+    }
+
+    .externallink {
+      position: fixed;
+      border-style: solid;
+      border-color: green;
+      border-width: 5px;
+      background-color: powderblue;
+      z-index: 1;
+      padding: 3px;
     }
 
     .leftbanner {
@@ -84,6 +110,7 @@
       top: 0%;
       left: 0%;
       width: 18%;
+      z-index: 0;
     }
 
     .rightbanner {
@@ -94,10 +121,29 @@
       width: 18%;
       left: 82%;
       transform: scaleX(-1);
+      z-index: 0;
     }
 
     .container {
       display: flex;
+    }
+
+    .divider {
+      border-style: dashed;
+      border-color: black;
+      border-width: 2px;
+      border-top: 0px;
+      color: rgb(0, 0, 0);
+      /* transparent */
+      width: 100%;
+      height: 0px;
+
+      display: flex;
+      margin: auto;
+      justify-content: center;
+      align-items: center;
+
+      padding-top: 20px;
     }
 
   </style>
@@ -118,10 +164,18 @@
   <iframe id="gameFrame" src="./mgba-player.html" style="width:792px;height:528px;margin:0 auto;display:block;"></iframe>
   </div>
   <img src="./Instructions.png" class="displayImage" alt="Instructions Screen" style="padding: 20px;" width="800" height="271">
+  <p class="header"> Welcome to GBA Hero! </p>
+  <p class="bodytext">
+    <br><br>GBA Hero is a vertical scrolling rhythm game for the Game Boy Advance taking inspiration from games like Guitar Hero and Dance Dance Revolution. This game was made for my CS 2261 class, Media Device Architecture, at Georgia Tech.
+    <br><br>This project taught me a great deal about low level programming in C and what it means to build a game engine from scratch. A few technical details of note is that this project fully utilizes all 4 DMG channels as well as the two Digital Sound channels for the GBA. The game engine comes with a dynamic text editor, built in functions for color interpolation and palette shifting for animation, and the ability for variable speed playback for both audio and visuals. Finally, I wrote a python program that allows the developer to turn a .midi music file into a .csv file so that the game engine generates as notes in real time, no prerendering required!
+  </p>
+  <p class="divider"></p>
+  <p class="buttontext">Download the GBA ROM here!</p>
+  <a href="./GBA_Hero.gba" download class="downloadbutton button1">Download📥</a>
   <img src="./8bitbackground.bmp" class="leftbanner" alt="8-bit sidebar">
   <img src="./8bitbackground.bmp" class="rightbanner" alt="8-bit sidebar">
-  <p>Download the GBA ROM here!</p>
-  <a href="./GBA_Hero.gba" download class="downloadbutton button1">Download📥</a>
+  <a href="https://www.linkedin.com/in/jennefer-bennett/" target="_blank" class="externallink" style="bottom: 0%; right: 0%;">View My LinkedIn🟦</a>
+  <p class="externallink" style="bottom: 26px; right: 0%;">Made by Jennefer Bennett</p>
   <!-- <p>
     B: Z<br />
     A: X<br />
