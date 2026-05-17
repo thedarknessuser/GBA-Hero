@@ -20,20 +20,23 @@
       color: black;
       font-size: 300%;
       margin-top: 0;
-      padding-top: 0;
-      margin-bottom: -50px;
-      padding-bottom: 0;
+      padding-top: 20px;
+      padding-bottom: -50px;
+
+      word-wrap: break-word;
+      max-width: 60%;
+      margin: auto;
     }
 
     .bodytext {
       text-align: center;
       background: transparent;
-      padding-top: 20px;
+      padding-top: 0px;
       padding-bottom: 10px;
       color: black;
       font-size: 125%;
       word-wrap: break-word;
-      max-width: 1000px;
+      max-width: 50%;
       display: flex;
       margin: auto;
     }
@@ -45,6 +48,10 @@
       padding-bottom: 10px;
       color: black;
       font-size: 125%;
+
+      word-wrap: break-word;
+      max-width: 60%;
+      margin: auto;
     }
 
     .displayImage {
@@ -67,8 +74,9 @@
     position: relative;
     display: flex;
     margin: auto;
-    left: 425px;
-    top: 52px;
+    left: 22.2%;
+    top: 52.5px;
+    z-index: 1;
     }
 
     .downloadbutton {
@@ -101,6 +109,7 @@
       background-color: powderblue;
       z-index: 1;
       padding: 3px;
+      font-size: 0.85vw;
     }
 
     .leftbanner {
@@ -110,7 +119,6 @@
       top: 0%;
       left: 0%;
       width: 18%;
-      z-index: 0;
     }
 
     .rightbanner {
@@ -121,7 +129,6 @@
       width: 18%;
       left: 82%;
       transform: scaleX(-1);
-      z-index: 0;
     }
 
     .container {
@@ -151,7 +158,7 @@
 
 <body>
   <!-- <h1>Welcome to my site.</h1>  -->
-  <img src="./Cool_Text_Trans.png" class="displayImage" alt="Cool Text" style="padding-top: 35px;" width="894" height="507">
+  <img src="./Cool_Text_Trans.png" class="displayImage" alt="Cool Text" style="padding-top: 35px;" width="48%" height="29%">
   <!-- style="text-transform: uppercase;font-size: 54px;padding-top:0.7em;margin-top:0" -->
   <div>
     <button class="fullscreenbutton button1" onclick="fullscreen()">⛶</button>
@@ -161,9 +168,9 @@
         document.getElementById("gameFrame").contentWindow.letErRip();
       }
     </script>
-  <iframe id="gameFrame" src="./mgba-player.html" style="width:792px;height:528px;margin:0 auto;display:block;"></iframe>
+  <iframe id="gameFrame" src="./mgba-player.html" style="width:41%; height:57.5vh; margin:0 auto;display:block; align-items: center; border: none;"></iframe>
   </div>
-  <img src="./Instructions.png" class="displayImage" alt="Instructions Screen" style="padding: 20px;" width="800" height="271">
+  <img src="./Instructions.png" class="displayImage" alt="Instructions Screen" style="padding: 20px;" width="41%" height="20%">
   <p class="header"> Welcome to GBA Hero! </p>
   <p class="bodytext">
     <br><br>GBA Hero is a vertical scrolling rhythm game for the Game Boy Advance taking inspiration from games like Guitar Hero and Dance Dance Revolution. This game was made for my CS 2261 class, Media Device Architecture, at Georgia Tech.
