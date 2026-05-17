@@ -7,7 +7,7 @@
   <!-- <link rel="stylesheet" href="./stylesheets/main.css"> -->
   <link rel="shortcut icon" href="./favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>My Demo Site</title>
+  <title>GBA Hero</title>
 
   <style>
     body {
@@ -28,27 +28,101 @@
       margin: 0;
       background: powderblue;
       padding-top: 20px;
-      padding-bottom: 100px;
+      padding-bottom: 10px;
       color: black;
       font-size: 125%;
     }
 
-    img {
+    .displayImage {
       display: block;
       margin: auto;
       image-rendering: pixelated;
     }
+
+    .fullscreenbutton {
+    border: none;
+    color: rgb(255, 255, 255);
+    background-color: rgb(40, 40, 40);
+    padding: 5px 13px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 32px;
+    margin: 4px 2px;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    margin: auto;
+    left: 425px;
+    top: 52px;
+    }
+
+    .downloadbutton {
+    border-style: dashed;
+    border-color: black;
+    border-width: 5px;
+    border-radius: 15%;
+    color: rgb(255, 255, 255);
+    background-color: dodgerblue;
+    /* transparent */
+    width: 200px;
+    height: 60px;
+
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 32px;
+    text-decoration: none;
+    }
+
+    .leftbanner {
+      image-rendering: pixelated;
+      height: 100%;
+      position: fixed;
+      top: 0%;
+      left: 0%;
+      width: 18%;
+    }
+
+    .rightbanner {
+      image-rendering: pixelated;
+      height: 100%;
+      position: fixed;
+      top: 0%;
+      width: 18%;
+      left: 82%;
+      transform: scaleX(-1);
+    }
+
+    .container {
+      display: flex;
+    }
+
   </style>
 </head>
 
 <body>
   <!-- <h1>Welcome to my site.</h1>  -->
-  <img src="./Cool_Text_Trans.png" alt="Cool Text" width="720" height="405">
+  <img src="./Cool_Text_Trans.png" class="displayImage" alt="Cool Text" style="padding-top: 35px;" width="894" height="507">
   <!-- style="text-transform: uppercase;font-size: 54px;padding-top:0.7em;margin-top:0" -->
-  <iframe src="./mgba-player.html" style="width:792px;height:528px;margin:0 auto;display:block;"></iframe>
-  <p>Click to play.</p>
-  <p>Default controls are:</p>
-  <p>
+  <div>
+    <button class="fullscreenbutton button1" onclick="fullscreen()">⛶</button>
+    <script>
+      function fullscreen() {
+        document.getElementById("gameFrame").contentWindow.focus();
+        document.getElementById("gameFrame").contentWindow.letErRip();
+      }
+    </script>
+  <iframe id="gameFrame" src="./mgba-player.html" style="width:792px;height:528px;margin:0 auto;display:block;"></iframe>
+  </div>
+  <img src="./Instructions.png" class="displayImage" alt="Instructions Screen" style="padding: 20px;" width="800" height="271">
+  <img src="./8bitbackground.bmp" class="leftbanner" alt="8-bit sidebar">
+  <img src="./8bitbackground.bmp" class="rightbanner" alt="8-bit sidebar">
+  <p>Download the GBA ROM here!</p>
+  <a href="./GBA_Hero.gba" download class="downloadbutton button1">Download📥</a>
+  <!-- <p>
     B: Z<br />
     A: X<br />
     Left Shoulder: A<br />
@@ -56,6 +130,6 @@
     Start: Enter<br />
     Select: Backspace<br />
     D-Pad: Arrow Keys
-  </p>
+  </p> -->
 </body>
 </html>
